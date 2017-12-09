@@ -4,7 +4,7 @@ const IDENTITY = 'identity';
 
 function negotiate(header, supported) {
   const supportedEncodings = createMap(supported);
-  const acceptedEncodings = parse(header)
+  const acceptedEncodings = parse(header || '')
     .sort(comparator)
     .filter(isNonZeroQuality);
   return determinePreffered(acceptedEncodings, supportedEncodings)

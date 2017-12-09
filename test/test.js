@@ -14,6 +14,15 @@ test('should return identity', (t) => {
   t.strictEquals(result, 'identity');
 })
 
+test('should return identity', (t) => {
+  t.plan(1);
+  const supported = ['gzip'];
+
+  const result = enodingNegotiator.negotiate(undefined, supported);
+
+  t.strictEquals(result, 'identity');
+})
+
 test('should return gzip', (t) => {
   t.plan(1);
   const header = 'gzip;q=1, identity;q=0.5';
