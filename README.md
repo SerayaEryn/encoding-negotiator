@@ -1,5 +1,7 @@
 # encoding-negotiator
 ## Install
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/SerayaEryn/encoding-negotiator.svg)](https://greenkeeper.io/)
 ```
 npm install encoding-negotiator
 ```
