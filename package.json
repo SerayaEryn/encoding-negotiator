@@ -20,7 +20,7 @@
   ],
   "author": "Denis Fäcke",
   "license": "MIT",
-  "dependencies": {
+  "devDependencies": {
     "coveralls": "^3.0.0",
     "eslint": "^4.13.0",
     "tap": "^11.0.0"
