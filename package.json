@@ -1,0 +1,35 @@
+{
+  "name": "encoding-negotiator",
+  "version": "1.0.0",
+  "description": "a negotiator for the accept-encoding header",
+  "main": "index.js",
+  "scripts": {
+    "unit": "tap test/*.js",
+    "test": "npm run lint && npm run unit",
+    "lint": "./node_modules/eslint/bin/eslint.js index.js test/*",
+    "coveralls": "npm run unit --  --cov",
+    "coverage-report": "npm run coveralls && tap --coverage-report=lcov"
+  },
+  "keywords": [
+    "encoding",
+    "negotiator",
+    "accept-encoding",
+    "accept",
+    "http",
+    "header"
+  ],
+  "author": "Denis Fäcke",
+  "license": "MIT",
+  "dependencies": {
+    "coveralls": "^3.0.0",
+    "eslint": "^4.13.0",
+    "tap": "^11.0.0"
+  },
+  "engines": {
+    "node": ">= 6.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SerayaEryn/encoding-negotiator.git"
+  }
+}
