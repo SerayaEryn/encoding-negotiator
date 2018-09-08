@@ -1,64 +1,64 @@
-'use strict';
+'use strict'
 
-const IDENTITY = 'identity';
+const IDENTITY = 'identity'
 
-function negotiate(header, supported) {
-  const supportedEncodings = createMap(supported);
+function negotiate (header, supported) {
+  const supportedEncodings = createMap(supported)
   const acceptedEncodings = parse(header || '')
     .sort(comparator)
-    .filter(isNonZeroQuality);
+    .filter(isNonZeroQuality)
   return determinePreffered(acceptedEncodings, supportedEncodings)
 }
 
-function determinePreffered(acceptedEncodings, supportedEncodings) { 
+function determinePreffered (acceptedEncodings, supportedEncodings) {
   for (const encoding of acceptedEncodings) {
-    const selected = supportedEncodings[encoding.name];
+    const selected = supportedEncodings[encoding.name]
     if (selected) {
-      return selected;
+      return selected
     }
   }
-  return IDENTITY;
+  return IDENTITY
 }
 
-function createMap(supported) {
+function createMap (supported) {
   const supportedEncodings = {
     identity: IDENTITY,
     '*': supported[0]
   }
   for (const encoding of supported) {
-    supportedEncodings[encoding] = encoding;
+    supportedEncodings[encoding] = encoding
   }
-  return supportedEncodings;
+  return supportedEncodings
 }
 
-function parse(header) {
-  const split = header.split(',');
+function parse (header) {
+  const split = header.split(',')
   return split.map(parseEncoding)
 }
 
-function isNonZeroQuality(encoding) {
-  return encoding.quality !== 0;
+function isNonZeroQuality (encoding) {
+  return encoding.quality !== 0
 }
 
-function parseEncoding(encoding) {
-  const [ name, second ] = encoding.trim().split(';');
-  const quality = getQuality(second);
+function parseEncoding (encoding) {
+  const [ name, second ] = encoding.trim().split(';')
+  const quality = getQuality(second)
   return {
     name,
     quality
   }
 }
 
-function getQuality(second) {
+function getQuality (second) {
   if (!second) {
-    return 1;
+    return 1
   }
-  const [ , quality ] = second.trim().split('=');
-  return parseFloat(quality);
+  const [ , quality ] = second.trim().split('=')
+  return parseFloat(quality)
 }
 
-function comparator(a, b) {
-  return b.quality - a.quality;
+function comparator (a, b) {
+  return b.quality - a.quality
 }
 
 module.exports = {

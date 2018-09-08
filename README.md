@@ -5,6 +5,8 @@
 [![Build Status](https://travis-ci.org/SerayaEryn/encoding-negotiator.svg?branch=master)](https://travis-ci.org/SerayaEryn/encoding-negotiator)
 [![Coverage Status](https://coveralls.io/repos/github/SerayaEryn/encoding-negotiator/badge.svg?branch=master)](https://coveralls.io/github/SerayaEryn/encoding-negotiator?branch=master)
 [![NPM version](https://img.shields.io/npm/v/encoding-negotiator.svg?style=flat)](https://www.npmjs.com/package/encoding-negotiator)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+
 ```
 npm install encoding-negotiator
 ```
