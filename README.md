@@ -14,7 +14,7 @@ npm install encoding-negotiator
 ```js
 const encodingNegotiator = require('encoding-negotiator');
 
-encodingNegotiator.negotiate('compress;q=0.5, gzip;q=1.0', ['gzip', 'deflate']); //returns gzip
+encodingNegotiator.negotiate('compress;q=0.5, gzip;q=1.0', ['gzip', 'deflate', 'identity']); //returns gzip
 ```
 ## API
 ### negotiate(header, supported)

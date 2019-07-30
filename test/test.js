@@ -5,17 +5,9 @@ const enodingNegotiator = require('..')
 
 test('should return identity', (t) => {
   const header = 'identity;q=1'
-  const supported = ['gzip']
+  const supported = ['gzip', 'identity']
 
   const result = enodingNegotiator.negotiate(header, supported)
-
-  t.is(result, 'identity')
-})
-
-test('should return identity if header is undefined', (t) => {
-  const supported = ['gzip']
-
-  const result = enodingNegotiator.negotiate(undefined, supported)
 
   t.is(result, 'identity')
 })
@@ -56,13 +48,39 @@ test('"deflate;q=1.0, *" and ["gzip"]', (t) => {
   t.is(result, 'gzip')
 })
 
-test('"gzip;q=0" and ["gzip"]', (t) => {
-  const header = 'gzip;q=0'
-  const supported = ['gzip']
+test('should ignore invalid encoding if another valid encoding', (t) => {
+  const header = 'test,br'
+  const supported = ['br']
 
   const result = enodingNegotiator.negotiate(header, supported)
 
-  t.is(result, 'identity')
+  t.is(result, 'br')
+})
+
+test('"gzip;q=0" and ["gzip"]', (t) => {
+  const header = 'gzip;q=0'
+  const supported = ['gzip', 'identity']
+
+  const result = enodingNegotiator.negotiate(header, supported)
+
+  t.is(result, null)
+})
+
+test('unknown encoding', (t) => {
+  const header = 'white rabbit'
+  const supported = ['gzip', 'identity']
+
+  const result = enodingNegotiator.negotiate(header, supported)
+
+  t.is(result, null)
+})
+
+test('return undefined if no header', (t) => {
+  const supported = ['gzip', 'identity']
+
+  const result = enodingNegotiator.negotiate(undefined, supported)
+
+  t.is(result, undefined)
 })
 
 test('compress;q=0.5, gzip;q=1.0 and ["gzip", compress"]', (t) => {

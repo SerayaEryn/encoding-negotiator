@@ -1,8 +1,9 @@
 'use strict'
 
-const IDENTITY = 'identity'
-
 function negotiate (header, supported) {
+  if (!header) {
+    return undefined
+  }
   const supportedEncodings = createMap(supported)
   const acceptedEncodings = parse(header || '')
     .sort(comparator)
@@ -17,13 +18,13 @@ function determinePreffered (acceptedEncodings, supportedEncodings) {
       return selected
     }
   }
-  return IDENTITY
+  return null
 }
 
 function createMap (supported) {
-  const supportedEncodings = {
-    identity: IDENTITY,
-    '*': supported[0]
+  const supportedEncodings = {}
+  if (supported.length > 0) {
+    supportedEncodings['*'] = supported[0]
   }
   for (const encoding of supported) {
     supportedEncodings[encoding] = encoding
