@@ -42,7 +42,7 @@ function isNonZeroQuality (encoding) {
 }
 
 function parseEncoding (encoding) {
-  const [ name, second ] = encoding.trim().split(';')
+  const [name, second] = encoding.trim().split(';')
   const quality = getQuality(second)
   return {
     name,
@@ -54,7 +54,7 @@ function getQuality (second) {
   if (!second) {
     return 1
   }
-  const [ , quality ] = second.trim().split('=')
+  const [, quality] = second.trim().split('=')
   return parseFloat(quality)
 }
 
