@@ -1,6 +1,6 @@
 {
   "name": "encoding-negotiator",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "a negotiator for the accept-encoding header",
   "main": "index.js",
   "scripts": {
