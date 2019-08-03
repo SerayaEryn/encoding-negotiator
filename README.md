@@ -23,6 +23,16 @@ Returns the most preffered encoding available in `supported` The first element o
 The `accept-encoding` header.
 #### supported
 An array of the supported encodings.
+
+## Benchmark
+
+```
+$ node benchmark/benchmark.js 
+negotiator x 260,201 ops/sec ±0.64% (88 runs sampled)
+encoding-negotiator x 434,196 ops/sec ±1.23% (88 runs sampled)
+Fastest is encoding-negotiator
+```
+
 ## License
 
 [MIT](./LICENSE)
