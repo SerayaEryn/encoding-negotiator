@@ -7,7 +7,7 @@
     "unit": "ava test/*.js",
     "test": "npm run lint && npm run unit",
     "lint": "standard index.js test/* benchmark/*",
-    "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
+    "coveralls": "nyc npm test",
     "coverage-report": "nyc npm test && nyc report --reporter=html"
   },
   "keywords": [
@@ -23,7 +23,6 @@
   "devDependencies": {
     "ava": "^2.0.0",
     "benchmark": "^2.1.4",
-    "coveralls": "^3.0.0",
     "negotiator": "^0.6.2",
     "nyc": "^14.1.1",
     "standard": "^14.0.0"
@@ -35,5 +34,5 @@
     "type": "git",
     "url": "git+https://github.com/SerayaEryn/encoding-negotiator.git"
   },
-  "dependencies": {}
+  "files": []
 }
