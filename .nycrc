@@ -2,5 +2,5 @@
     "all": true,
     "check-coverage": true,
     "reporter": [ "lcov", "text" ],
-    "include": [ "lib" ]
+    "include": [ "index.js" ]
 }

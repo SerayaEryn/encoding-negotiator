@@ -23,7 +23,6 @@
   "devDependencies": {
     "ava": "^2.0.0",
     "benchmark": "^2.1.4",
-    "coveralls": "^3.0.0",
     "negotiator": "^0.6.2",
     "nyc": "^14.1.1",
     "standard": "^13.0.1"
