@@ -100,3 +100,39 @@ test('compress;q=0.5, gzip;q=1.0 and ["compress"]', (t) => {
 
   t.is(result, 'compress')
 })
+
+test('gzip, deflate, br and ["gzip", "deflate", "br"]', (t) => {
+  const header = 'gzip, deflate, br'
+  const supported = ['gzip', 'deflate', 'br']
+
+  const result = enodingNegotiator.negotiate(header, supported)
+
+  t.is(result, 'gzip')
+})
+
+test('gzip, br, deflate and ["gzip", "deflate", "br"]', (t) => {
+  const header = 'gzip, br, deflate"
+  const supported = ['gzip', 'deflate', 'br']
+
+  const result = enodingNegotiator.negotiate(header, supported)
+
+  t.is(result, 'gzip')
+})
+
+test('br, gzip, deflate and ["gzip", "deflate", "br"]', (t) => {
+  const header = 'br, gzip, deflate'
+  const supported = ['gzip', 'deflate', 'br']
+
+  const result = enodingNegotiator.negotiate(header, supported)
+
+  t.is(result, 'br')
+})
+
+test('br, deflate, gzip and ["gzip", "deflate", "br"]', (t) => {
+  const header = 'br, deflate, gzip'
+  const supported = ['gzip', 'deflate', 'br']
+
+  const result = enodingNegotiator.negotiate(header, supported)
+
+  t.is(result, 'br')
+})
