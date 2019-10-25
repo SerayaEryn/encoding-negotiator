@@ -111,7 +111,7 @@ test('gzip, deflate, br and ["gzip", "deflate", "br"]', (t) => {
 })
 
 test('gzip, br, deflate and ["gzip", "deflate", "br"]', (t) => {
-  const header = 'gzip, br, deflate"
+  const header = 'gzip, br, deflate'
   const supported = ['gzip', 'deflate', 'br']
 
   const result = enodingNegotiator.negotiate(header, supported)
