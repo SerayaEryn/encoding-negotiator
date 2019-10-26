@@ -1,14 +1,14 @@
 'use strict'
 
-function negotiate (header, supported) {
+function negotiate ({ header, supportedEncodings, prefferedEncoding }) {
   if (!header) {
     return undefined
   }
-  const supportedEncodings = createMap(supported)
-  const acceptedEncodings = parse(header || '')
+  const supportedEncodingMap = createMap(supportedEncodings, prefferedEncoding)
+  const acceptedEncodings = parse(header, prefferedEncoding)
     .sort(comparator)
     .filter(isNonZeroQuality)
-  return determinePreffered(acceptedEncodings, supportedEncodings)
+  return determinePreffered(acceptedEncodings, supportedEncodingMap)
 }
 
 function determinePreffered (acceptedEncodings, supportedEncodings) {
@@ -32,25 +32,29 @@ function createMap (supported) {
   return supportedEncodings
 }
 
-function parse (header) {
+function parse (header, prefferedEncoding) {
   const split = header.split(',')
-  return split.map(parseEncoding)
+  return split.map((encoding) => parseEncoding(encoding, prefferedEncoding))
 }
 
 function isNonZeroQuality (encoding) {
   return encoding.quality !== 0
 }
 
-function parseEncoding (encoding) {
+function parseEncoding (encoding, prefferedEncoding) {
   const [name, second] = encoding.trim().split(';')
-  const quality = getQuality(second)
+  const isPrefferedEncoding = name === prefferedEncoding
+  const quality = getQuality(second, isPrefferedEncoding, prefferedEncoding)
   return {
     name,
     quality
   }
 }
 
-function getQuality (second) {
+function getQuality (second, isPrefferedEncoding, preffered) {
+  if (isPrefferedEncoding && !second) {
+    return 2
+  }
   if (!second) {
     return 1
   }
