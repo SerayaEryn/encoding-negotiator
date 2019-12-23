@@ -24,7 +24,7 @@
     "ava": "^2.0.0",
     "benchmark": "^2.1.4",
     "negotiator": "^0.6.2",
-    "nyc": "^14.1.1",
+    "nyc": "^15.0.0",
     "standard": "^14.0.0"
   },
   "engines": {
