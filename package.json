@@ -28,7 +28,7 @@
     "standard": "^14.0.0"
   },
   "engines": {
-    "node": ">= 6.0.0"
+    "node": ">=10.13.0"
   },
   "repository": {
     "type": "git",
