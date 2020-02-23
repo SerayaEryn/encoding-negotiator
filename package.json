@@ -7,8 +7,7 @@
     "unit": "ava test/*.js",
     "test": "npm run lint && npm run unit",
     "lint": "standard index.js test/* benchmark/*",
-    "coveralls": "nyc npm test",
-    "coverage-report": "nyc npm test && nyc report --reporter=html"
+    "coveralls": "nyc npm test"
   },
   "keywords": [
     "encoding",

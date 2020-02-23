@@ -12,15 +12,15 @@ const request = {
     'accept-encoding': header
   }
 }
-const availableEncodings = ['gzip', 'deflate', 'identity', 'br']
+const supportedEncodings = ['gzip', 'deflate', 'identity', 'br']
 
 suite
   .add('negotiator', function () {
     const negotiator = new Negotiator(request)
-    negotiator.encoding(availableEncodings)
+    negotiator.encoding(supportedEncodings)
   })
   .add('encoding-negotiator', function () {
-    encodingNegotiator.negotiate(header, availableEncodings)
+    encodingNegotiator.negotiate(header, supportedEncodings)
   })
   .on('cycle', function (event) {
     console.log(String(event.target))

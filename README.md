@@ -18,10 +18,16 @@ encodingNegotiator.negotiate('compress;q=0.5, gzip;q=1.0', ['gzip', 'deflate', '
 ```
 ## API
 ### negotiate(header, supported)
-Returns the most preffered encoding available in `supported` The first element of the `supported` array will be used in case of an asterisk.
+Returns the most preffered encoding available in `supportedEncodings` The first 
+element of the `supportedEncodings` array will be used in case of an asterisk.
+
+
 #### header
+
 The `accept-encoding` header.
-#### supported
+
+#### supportedEncodings
+
 An array of the supported encodings.
 
 ## Benchmark
