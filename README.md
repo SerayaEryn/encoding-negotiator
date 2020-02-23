@@ -14,7 +14,10 @@ npm install encoding-negotiator
 ```js
 const encodingNegotiator = require('encoding-negotiator');
 
-encodingNegotiator.negotiate('compress;q=0.5, gzip;q=1.0', ['gzip', 'deflate', 'identity']); //returns gzip
+encodingNegotiator.negotiate({
+  header: 'compress;q=0.5, gzip;q=1.0',
+  supportedEncodings: ['gzip', 'deflate', 'identity']
+); //returns gzip
 ```
 ## API
 ### negotiate(header, supported)
@@ -29,6 +32,11 @@ The `accept-encoding` header.
 #### supportedEncodings
 
 An array of the supported encodings.
+
+##### prefferedEncoding (optional)
+
+An encoding preffered by the server if the client sends multiple encodings no 
+quality value (for example `Accept-Encoding: gzip, deflate, br`).
 
 ## Benchmark
 
