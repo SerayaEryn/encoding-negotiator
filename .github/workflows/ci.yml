@@ -32,7 +32,6 @@ jobs:
           flag-name: run-$
   finish:
     needs: build
-    if: $
     runs-on: ubuntu-latest
     steps:
       - name: Close parallel build
