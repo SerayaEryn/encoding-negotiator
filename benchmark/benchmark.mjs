@@ -1,9 +1,8 @@
-"use strict";
+import benchmark from "benchmark";
+import { negotiateEncoding } from "../index.mjs";
+import Negotiator from "negotiator";
 
-const { Suite } = require("benchmark");
-const encodingNegotiator = require("..");
-const Negotiator = require("negotiator");
-
+const { Suite } = benchmark;
 const suite = new Suite();
 
 const header = "gzip;q=0.5,deflate;q=0.6,identity;q=0.3";
@@ -20,7 +19,7 @@ suite
     negotiator.encoding(supportedEncodings);
   })
   .add("encoding-negotiator", function () {
-    encodingNegotiator.negotiate(header, supportedEncodings);
+    negotiateEncoding(header, supportedEncodings);
   })
   .on("cycle", function (event) {
     console.log(String(event.target));

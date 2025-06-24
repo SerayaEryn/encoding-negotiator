@@ -2,12 +2,13 @@
   "name": "encoding-negotiator",
   "version": "2.0.1",
   "description": "a negotiator for the accept-encoding header",
-  "main": "index.js",
+  "main": "index.mjs",
+  "type": "module",
   "scripts": {
-    "unit": "ava test/*.js",
-    "test": "npx prettier index.js test/* benchmark/* --check && npm run lint && npm run unit",
-    "lint": "eslint index.js test/* benchmark/*",
-    "prettier": "npx prettier index.js test/* benchmark/* --write",
+    "unit": "ava test/*.mjs",
+    "test": "npx prettier index.mjs test/* benchmark/* --check && npm run lint && npm run unit",
+    "lint": "eslint index.mjs test/* benchmark/*",
+    "prettier": "npx prettier index.mjs test/* benchmark/* --write",
     "coverage": "c8 --reporter=lcov npm test"
   },
   "keywords": [

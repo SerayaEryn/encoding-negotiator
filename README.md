@@ -7,22 +7,22 @@
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ```
-npm install encoding-negotiator
+npm i encoding-negotiator -S
 ```
 ## Example
-```js
-const encodingNegotiator = require('encoding-negotiator');
 
-encodingNegotiator.negotiate({
+```mjs
+import negotiateEncoding from 'encoding-negotiator';
+
+negotiateEncoding({
   header: 'compress;q=0.5, gzip;q=1.0',
   supportedEncodings: ['gzip', 'deflate', 'identity']
 ); //returns gzip
 ```
 ## API
-### negotiate(header, supported)
+### negotiateEncoding(header, supported)
 Returns the most preffered encoding available in `supportedEncodings` The first 
 element of the `supportedEncodings` array will be used in case of an asterisk.
-
 
 #### header
 
@@ -41,8 +41,8 @@ quality value (for example `Accept-Encoding: gzip, deflate, br`).
 
 ```
 $ node benchmark/benchmark.js 
-negotiator x 260,201 ops/sec ±0.64% (88 runs sampled)
-encoding-negotiator x 434,196 ops/sec ±1.23% (88 runs sampled)
+negotiator x 863,149 ops/sec ±0.40% (99 runs sampled)
+encoding-negotiator x 2,346,708 ops/sec ±0.53% (98 runs sampled)
 Fastest is encoding-negotiator
 ```
 

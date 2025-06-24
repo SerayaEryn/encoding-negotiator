@@ -1,6 +1,4 @@
-"use strict";
-
-function negotiate(header, supportedEncodings) {
+export function negotiateEncoding(header, supportedEncodings) {
   if (!header) {
     return undefined;
   }
@@ -76,7 +74,3 @@ function comparator(a, b, supportedEncodingMap) {
   }
   return b.quality - a.quality;
 }
-
-module.exports = {
-  negotiate,
-};
