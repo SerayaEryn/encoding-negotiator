@@ -1,6 +1,6 @@
 {
   "name": "encoding-negotiator",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "a negotiator for the accept-encoding header",
   "main": "index.mjs",
   "type": "module",
