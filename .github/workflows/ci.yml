@@ -24,14 +24,20 @@ jobs:
       - name: Run Tests & generate coverage
         run: |
           npm run coverage
-      - name: Coveralls Parallel
-        uses: coverallsapp/github-action@master
+      - name: Send coverage to Coveralls (parallel)
+        uses: coverallsapp/github-action@v1
         with:
           github-token: ${{ secrets.github_token }}
           parallel: true
-
-      - name: Coveralls Finished
-        uses: coverallsapp/github-action@master
+          flag-name: run-$
+  finish:
+    needs: build
+    if: $
+    runs-on: ubuntu-latest
+    steps:
+      - name: Close parallel build
+        uses: coverallsapp/github-action@v1
         with:
           github-token: ${{ secrets.github_token }}
           parallel-finished: true
+          carryforward: "run-22.x,run-23.x,run-24.x"
