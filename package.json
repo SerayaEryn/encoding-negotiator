@@ -7,7 +7,7 @@
     "unit": "ava test/*.js",
     "test": "npm run lint && npm run unit",
     "lint": "standard index.js test/* benchmark/*",
-    "coveralls": "nyc npm test"
+    "coverage": "c8 --reporter=lcov npm test"
   },
   "keywords": [
     "encoding",
@@ -22,8 +22,8 @@
   "devDependencies": {
     "ava": "^5.2.0",
     "benchmark": "^2.1.4",
+    "c8": "^10.1.3",
     "negotiator": "^0.6.4",
-    "nyc": "^15.0.0",
     "standard": "^16.0.1"
   },
   "engines": {
