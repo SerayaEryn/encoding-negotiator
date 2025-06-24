@@ -8,7 +8,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [22.x, 23.x, 24.x]
+        node-version: [20.x, 22.x, 23.x, 24.x]
 
     steps:
       - uses: actions/checkout@v1
@@ -39,4 +39,4 @@ jobs:
         with:
           github-token: ${{ secrets.github_token }}
           parallel-finished: true
-          carryforward: "run-22.x,run-23.x,run-24.x"
+          carryforward: "run-20.x,run-22.x,run-23.x,run-24.x"
