@@ -22,7 +22,7 @@
   "devDependencies": {
     "ava": "^5.2.0",
     "benchmark": "^2.1.4",
-    "negotiator": "^0.6.2",
+    "negotiator": "^0.6.4",
     "nyc": "^15.0.0",
     "standard": "^16.0.1"
   },
