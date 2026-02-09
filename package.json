@@ -22,7 +22,7 @@
   "author": "Denis Fäcke",
   "license": "MIT",
   "devDependencies": {
-    "@eslint/js": "^9.29.0",
+    "@eslint/js": "^10.0.1",
     "ava": "^6.4.0",
     "benchmark": "^2.1.4",
     "c8": "^10.1.3",
